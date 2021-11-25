@@ -1,0 +1,8 @@
+//
+// Created by bbara on 19.11.2021.
+//
+
+#ifndef TOWER_DEFENCE_HEAVY_ENEMY_H
+#define TOWER_DEFENCE_HEAVY_ENEMY_H
+
+#endif //TOWER_DEFENCE_HEAVY_ENEMY_H
