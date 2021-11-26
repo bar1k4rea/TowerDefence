@@ -5,24 +5,22 @@
 
 #include "../ObjectWithHealth/ObjectWithHealth.h"
 #include "../Table/Table.h"
+#include "../Castle/Castle.h"
 
 namespace TowerDefence {
 
     // Class Wall
     class Wall : public ObjectWithHealth {
     protected:
-        int m_counter;
-        WallTable *m_table;
-
-        int calculateCost(int strength);
+        int m_cost;
     public:
         Wall();
 
-        Wall(const Point &point, int health, int counter, WallTable *table);
+        Wall(const Point &point, int health, int cost);
 
-        Wall(const Point &point, int health, int maxHealth, int counter, WallTable *table);
+        Wall(const Point &point, int health, int maxHealth, int cost);
 
-        int renovate(int gold);
+        void renovate(Castle& castle);
     };
 
 } /* namespace TowerDefence */

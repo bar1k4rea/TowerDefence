@@ -4,6 +4,7 @@
 #define TOWER_DEFENCE_ENEMY_H
 
 #include "../ObjectWithHealth/ObjectWithHealth.h"
+#include "../Castle/Castle.h"
 
 namespace TowerDefence {
 
@@ -14,21 +15,27 @@ namespace TowerDefence {
         int m_recovery;
         int m_damage;
     public:
-        int getSpeed() const;
+        Enemy();
+
+        Enemy(const Point &point, int health, int speed, int recovery, int damage);
+
+        Enemy(const Point &point, int health, int maxHealth, int speed, int recovery, int damage);
+
+        void attackCastle(Castle &castle);
+
+        virtual void update();
+
+        [[nodiscard]] int getSpeed() const;
 
         void setSpeed(int speed);
 
-        int getRecovery() const;
+        [[nodiscard]] int getRecovery() const;
 
         void setRecovery(int recovery);
 
-        int getDamage() const;
+        [[nodiscard]] int getDamage() const;
 
         void setDamage(int damage);
-
-        int attackCastle(int health);
-
-        void update();
     };
 
 } /* namespace TowerDefence */

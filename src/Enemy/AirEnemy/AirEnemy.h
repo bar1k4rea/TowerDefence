@@ -3,11 +3,26 @@
 #ifndef TOWER_DEFENCE_AIR_ENEMY_H
 #define TOWER_DEFENCE_AIR_ENEMY_H
 
+#include "../Enemy.h"
+#include "../../Wall/Wall.h"
+
 namespace TowerDefence {
 
     // Class AirEnemy.
-    class AirHero : public AirEnemy {
+    class AirEnemy : public Enemy {
+    protected:
+        int m_hit;
+        int m_ammunition;
+    public:
+        AirEnemy();
 
+        AirEnemy(const Point &point, int health, int speed, int recovery, int damage, int hit, int ammunition);
+
+        AirEnemy(const Point &point, int health, int maxHealth, int speed, int recovery, int damage, int hit, int ammunition);
+
+        void attackWall(Wall &wall);
+
+        virtual void update();
     };
 
 } /* namespace TowerDefence */

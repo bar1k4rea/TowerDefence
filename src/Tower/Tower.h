@@ -5,6 +5,9 @@
 
 #include "../ObjectWithHealth/ObjectWithHealth.h"
 #include "../Table/Table.h"
+#include "../Table/TowerData/TowerData.h"
+#include "../Castle/Castle.h"
+#include "../Enemy/Enemy.h"
 
 namespace TowerDefence {
 
@@ -12,18 +15,19 @@ namespace TowerDefence {
     class Tower : public ObjectWithHealth {
     protected:
         int m_level;
-        int m_counter;
-        TowerTable *m_table;
+        Table<int, TowerData> m_table;
     public:
         Tower();
 
-        Tower(const Point &point, int health, int counter, TowerTable *table);
+        Tower(const Point &point, int health, const Table<int, TowerData>& table);
 
-        Tower(const Point &point, int health, int maxHealth, int level, int counter, TowerTable *table);
+        Tower(const Point &point, int health, int maxHealth, int level, const Table<int, TowerData>& table);
 
-        int upgrade(int gold);
+        [[nodiscard]] int getRate();
 
-        int attackEnemy(int health);
+        void upgrade(Castle &castle);
+
+        void attackEnemy(Enemy& enemy);
     };
 
 } /* namespace TowerDefence */

@@ -19,6 +19,12 @@ namespace TowerDefence {
 
         ObjectWithHealth(const Point &point, int health, int maxHealth);
 
+        void increaseHealth(int amount);
+
+        void decreaseHealth(int amount);
+
+        [[nodiscard]] bool isAlive() const;
+
         [[nodiscard]] int getHealth() const;
 
         [[nodiscard]] int getMaxHealth() const;
@@ -26,12 +32,6 @@ namespace TowerDefence {
         void setHealth(int health);
 
         void setMaxHealth(int maxHealth);
-
-        void increaseHealth(int amount);
-
-        void decreaseHealth(int amount);
-
-        [[nodiscard]] bool isAlive() const;
     };
 
 } /* namespace TowerDefence */

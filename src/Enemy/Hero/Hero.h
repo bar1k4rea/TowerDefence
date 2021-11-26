@@ -9,11 +9,24 @@
 namespace TowerDefence {
 
     // Class Hero.
-    class Hero : public Enemy {
+    class Hero {
     protected:
+        int m_length;
         Aura m_aura;
     public:
-        void useAura();
+        Hero();
+
+        explicit Hero(int length, Aura aura);
+
+        void useAura(Enemy &enemy);
+
+        [[nodiscard]] const Aura &getMAura() const {
+            return m_aura;
+        }
+
+        void setMAura(const Aura &mAura) {
+            m_aura = mAura;
+        }
     };
 
 } /* namespace TowerDefence */

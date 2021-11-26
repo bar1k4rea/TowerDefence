@@ -21,6 +21,13 @@ namespace TowerDefence {
         std::cout << "Second Constructor for Point: " << this << std::endl;
     }
 
+    // Comparison operator for Point.
+    bool operator==(const Point &left, const Point &right) {
+        if ((left.x == right.x) && (left.y == right.y))
+            return true;
+        return false;
+    }
+
     // Empty constructor for ObjectWithLocation.
     ObjectWithLocation::ObjectWithLocation() : m_point() {
         std::cout << "Empty Constructor for ObjectWithLocation: " << this << std::endl;

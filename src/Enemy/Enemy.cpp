@@ -1,8 +1,28 @@
 /* Created by bar1k4real on 15.11.2021. */
 
+#include <iostream>
 #include "Enemy.h"
 
 namespace TowerDefence {
+
+    // Empty constructor for Enemy.
+    Enemy::Enemy() : ObjectWithHealth(), m_speed(0), m_recovery(0), m_damage(0) {
+        std::cout << "Empty Constructor for Enemy: " << this << std::endl;
+    }
+
+    // First constructor for Enemy.
+    Enemy::Enemy(const Point &point, int health, int speed, int recovery, int damage) : ObjectWithHealth(point, health),
+                                                                                        m_speed(speed),
+                                                                                        m_recovery(recovery),
+                                                                                        m_damage(damage) {
+        std::cout << "First Constructor for Enemy: " << this << std::endl;
+    }
+
+    // Second constructor for Enemy.
+    Enemy::Enemy(const Point &point, int health, int maxHealth, int speed, int recovery, int damage) : ObjectWithHealth(
+            point, health, maxHealth), m_speed(speed), m_recovery(recovery), m_damage(damage) {
+        std::cout << "Second Constructor for Enemy: " << this << std::endl;
+    }
 
     // Update data for Enemy.
     void Enemy::update() {
@@ -10,8 +30,9 @@ namespace TowerDefence {
     }
 
     // Attack Castle.
-    int Enemy::attackCastle(int health) {
-        health -= m_damage;
+    void Enemy::attackCastle(Castle& castle) {
+        if (m_point == castle.getPoint())
+            castle.decreaseHealth(m_damage);
     }
 
     // Getter for m_speed.

@@ -9,8 +9,13 @@
 namespace TowerDefence {
 
     // Class AirHero.
-    class AirHero : public AirEnemy {
+    class AirHero : public AirEnemy, public Hero {
+    public:
+        AirHero();
 
+        AirHero(const Point &point, int health, int speed, int recovery, int damage, int hit, int ammunition, int m_length, Aura m_aura;);
+
+        virtual void update();
     };
 
 } /* namespace TowerDefence */

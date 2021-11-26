@@ -12,11 +12,15 @@ namespace TowerDefence {
     protected:
         int m_chance;
     public:
+        LightEnemy();
 
+        LightEnemy(const Point &point, int health, int speed, int recovery, int damage, int chance);
 
-        void avoidDamage();
+        LightEnemy(const Point &point, int health, int maxHealth, int speed, int recovery, int damage, int chance);
 
-        void update();
+        bool avoidDamage();
+
+        virtual void update();
     };
 
 } /* namespace TowerDefence */

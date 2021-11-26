@@ -23,6 +23,21 @@ namespace TowerDefence {
         std::cout << "Second Constructor for ObjectWithHealth: " << this << std::endl;
     }
 
+    // Increase health.
+    void ObjectWithHealth::increaseHealth(int amount) {
+        m_health = std::max(m_health + amount, m_maxHealth);
+    }
+
+    // Decrease health.
+    void ObjectWithHealth::decreaseHealth(int amount) {
+        m_health = std::min(m_health - amount, 0);
+    }
+
+    // Check health.
+    bool ObjectWithHealth::isAlive() const {
+        return m_health > 0;
+    }
+
     // Getter for m_health.
     int ObjectWithHealth::getHealth() const {
         return m_health;
@@ -41,21 +56,6 @@ namespace TowerDefence {
     // Setter for m_maxHealth.
     void ObjectWithHealth::setMaxHealth(int maxHealth) {
         m_maxHealth = maxHealth;
-    }
-
-    // Increase health.
-    void ObjectWithHealth::increaseHealth(int amount) {
-        m_health = std::max(m_health + amount, m_maxHealth);
-    }
-
-    // Decrease health.
-    void ObjectWithHealth::decreaseHealth(int amount) {
-        m_health = std::min(m_health - amount, 0);
-    }
-
-    // Check health.
-    bool ObjectWithHealth::isAlive() const {
-        return m_health > 0;
     }
 
 } /* namespace TowerDefence */

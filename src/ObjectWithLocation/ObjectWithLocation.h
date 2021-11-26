@@ -15,6 +15,8 @@ namespace TowerDefence {
         explicit Point(int x);
 
         Point(int x, int y);
+
+        friend bool operator== (const Point &left, const Point &right);
     };
 
     // Class ObjectWithLocation
@@ -26,11 +28,11 @@ namespace TowerDefence {
 
         explicit ObjectWithLocation(const Point &point);
 
+        [[nodiscard]] double distance(const Point &point) const;
+
         [[nodiscard]] const Point &getPoint() const;
 
         void setPoint(const Point &point);
-
-        [[nodiscard]] double distance(const Point &point) const;
     };
 
 } /* namespace TowerDefence */
