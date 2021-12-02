@@ -17,6 +17,12 @@ namespace TowerDefence {
 
     // Improving abilities of enemies.
     void Hero::useAura(Enemy &enemy) {
+
+    }
+
+} /* namespace TowerDefence */
+
+/*
         int speed = enemy.getSpeed(), maxHealth = enemy.getMaxHealth(), recovery = enemy.getRecovery(), damage = enemy.getDamage();
         if (distance(enemy.getPoint()) <= m_length) {
             enemy.setSpeed(speed + m_aura.speed);
@@ -24,9 +30,5 @@ namespace TowerDefence {
             enemy.setRecovery(recovery + m_aura.recovery);
             enemy.setDamage(damage + m_aura.damage);
         }
-    }
-
-} /* namespace TowerDefence */
-
-
+*/
 

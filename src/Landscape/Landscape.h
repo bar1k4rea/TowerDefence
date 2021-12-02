@@ -9,7 +9,6 @@ namespace TowerDefence {
     class Landscape {
         int height;
         int weight;
-
     };
 
 } /* namespace TowerDefence */

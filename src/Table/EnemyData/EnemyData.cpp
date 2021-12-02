@@ -17,11 +17,28 @@ namespace TowerDefence {
         std::cout << "First Constructor for EnemyData: " << this << std::endl;
     }
 
+    // Copy constructor for EnemyData.
+    EnemyData::EnemyData(const EnemyData &enemyData) : health(enemyData.health), recovery(enemyData.recovery),
+                                                       damage(enemyData.damage), speed(enemyData.speed),
+                                                       hit(enemyData.hit), chance(enemyData.chance),
+                                                       radius(enemyData.radius), ammunition(enemyData.ammunition) {
+        std::cout << "Copy Constructor for EnemyData: " << this << std::endl;
+    }
+
     // Input for EnemyData.
-    std::istream &operator>>(std::istream &in, EnemyData &data) {
-        in >> data.health >> data.recovery >> data.damage >> data.speed >> data.hit >> data.chance >> data.radius
-           >> data.ammunition;
+    std::istream &operator>>(std::istream &in, EnemyData &enemyData) {
+        in >> enemyData.health >> enemyData.recovery >> enemyData.damage >> enemyData.speed >> enemyData.hit
+           >> enemyData.chance >> enemyData.radius
+           >> enemyData.ammunition;
         return in;
+    }
+
+    // Output for EnemyData.
+    std::ostream &operator<<(std::ostream &out, const EnemyData &enemyData) {
+        out << enemyData.health << ' ' << enemyData.recovery << ' ' << enemyData.damage << ' ' << enemyData.speed << ' '
+            << enemyData.hit << ' ' << enemyData.hit << ' ' << enemyData.chance << ' ' << enemyData.radius << ' '
+            << enemyData.ammunition;
+        return out;
     }
 
 } /* namespace TowerDefence */

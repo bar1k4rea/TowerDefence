@@ -18,7 +18,7 @@ namespace TowerDefence {
 
         explicit Hero(int length, Aura aura);
 
-        void useAura(Enemy &enemy);
+        virtual void useAura(Enemy &enemy);
 
         [[nodiscard]] const Aura &getMAura() const {
             return m_aura;

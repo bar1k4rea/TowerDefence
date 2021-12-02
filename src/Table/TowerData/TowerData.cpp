@@ -16,10 +16,22 @@ namespace TowerDefence {
         std::cout << "First Constructor for TowerData: " << this << std::endl;
     }
 
+    // Copy constructor for TowerData.
+    TowerData::TowerData(const TowerData &towerData) : radius(towerData.radius), damage(towerData.damage),
+                                                       rate(towerData.rate), cost(towerData.cost) {
+        std::cout << "Copy Constructor for TowerData: " << this << std::endl;
+    }
+
     // Input for TowerData.
-    std::istream &operator>>(std::istream &in, TowerData &data) {
-        in >> data.radius >> data.damage >> data.rate >> data.cost;
+    std::istream &operator>>(std::istream &in, TowerData &towerData) {
+        in >> towerData.radius >> towerData.damage >> towerData.rate >> towerData.cost;
         return in;
+    }
+
+    // Output for TowerData.
+    std::ostream &operator<<(std::ostream &out, const TowerData &towerData) {
+        out << towerData.radius << ' ' << towerData.damage << ' ' << towerData.rate << ' ' << towerData.cost;
+        return out;
     }
 
 } /* namespace TowerDefence */

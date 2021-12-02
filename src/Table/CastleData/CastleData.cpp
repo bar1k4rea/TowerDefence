@@ -16,11 +16,22 @@ namespace TowerDefence {
         std::cout << "First Constructor for CastleData: " << this << std::endl;
     }
 
+    // Copy constructor for CastleData.
+    CastleData::CastleData(const CastleData &castleData) : profit(castleData.profit), maxHealth(castleData.maxHealth),
+                                                           recovery(castleData.recovery), cost(castleData.cost) {
+        std::cout << "Copy Constructor for CastleData: " << this << std::endl;
+    }
+
     // Input for CastleData.
-    std::istream &operator>>(std::istream &in, CastleData &data) {
-        in >> data.profit >> data.maxHealth >> data.recovery >> data.cost;
+    std::istream &operator>>(std::istream &in, CastleData &castleData) {
+        in >> castleData.profit >> castleData.maxHealth >> castleData.recovery >> castleData.cost;
         return in;
     }
 
-} /* namespace TowerDefence */
+    // Output for CastleData.
+    std::ostream &operator<<(std::ostream &out, const CastleData &castleData) {
+        out << castleData.profit << ' ' << castleData.maxHealth << ' ' << castleData.recovery << ' ' << castleData.cost;
+        return out;
+    }
 
+} /* namespace TowerDefence */

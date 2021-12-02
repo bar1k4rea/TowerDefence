@@ -12,7 +12,7 @@ namespace TowerDefence {
     class Lair : public ObjectWithLocation {
     protected:
         int m_counter;
-        LairTable m_table;
+//        LairTable m_table;
     public:
 
     };

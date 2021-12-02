@@ -15,6 +15,16 @@ namespace TowerDefence {
 
     }
 
+    void AirHero::useAura(Enemy &enemy) {
+        int speed = enemy.getSpeed(), maxHealth = enemy.getMaxHealth(), recovery = enemy.getRecovery(), damage = enemy.getDamage();
+        if (distance(enemy.getPoint()) <= m_length) {
+            enemy.setSpeed(speed + m_aura.speed);
+            enemy.setMaxHealth(maxHealth + m_aura.maxHealth);
+            enemy.setRecovery(recovery + m_aura.recovery);
+            enemy.setDamage(damage + m_aura.damage);
+        }
+    }
+
     void AirHero::update() {
         decreaseHealth(m_recovery);
     }

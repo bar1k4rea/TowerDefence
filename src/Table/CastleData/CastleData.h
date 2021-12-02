@@ -16,7 +16,11 @@ namespace TowerDefence {
 
         CastleData(int profit, int maxHealth, int recovery, int cost);
 
-        friend std::istream &operator>>(std::istream &in, CastleData &data);
+        CastleData(const CastleData &castleData);
+
+        friend std::istream &operator>>(std::istream &in, CastleData &castleData);
+
+        friend std::ostream &operator<<(std::ostream &out, const CastleData &castleData);
     };
 
 } /* namespace TowerDefence */
