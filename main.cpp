@@ -4,27 +4,21 @@
 #include "CastleData.h"
 #include "TowerData.h"
 #include "EnemyData.h"
+#include "src/Loader/Loader.h"
 
 
 int main() {
-//    std::ofstream castleFile("CastleData.txt");
-//
-//    castleFile << "1 34 45 56 67" << std::endl;
-//    castleFile << "2 45 56 32 132";
-
-    std::ifstream castleFile("CastleData.txt");
     TowerDefence::Pair<int, TowerDefence::CastleData> pair;
+    std::cout << pair << std::endl;
 
-    if (castleFile.is_open())
-        std::cout << "File is open!" << std::endl;
+    TowerDefence::Pair<int, TowerDefence::CastleData> pair1;
+    std::cout << pair << std::endl;
 
-    while (castleFile >> pair) {
+    TowerDefence::Pair<int, TowerDefence::CastleData> pair2;
+    std::cout << pair << std::endl;
 
-        std::cout << pair << std::endl;
-
-    }
-
-    castleFile.close();
+    TowerDefence::Pair<int, TowerDefence::CastleData> pair3;
+    std::cout << pair << std::endl;
 
     return 0;
 }

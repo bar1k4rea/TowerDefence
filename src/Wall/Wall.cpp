@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include "Wall.h"
+
  namespace TowerDefence {
 
      // Empty constructor for Wall.

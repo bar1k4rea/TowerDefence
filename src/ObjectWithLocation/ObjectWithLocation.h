@@ -3,6 +3,8 @@
 #ifndef TOWER_DEFENCE_OBJECT_WITH_LOCATION_H
 #define TOWER_DEFENCE_OBJECT_WITH_LOCATION_H
 
+#include <iostream>
+
 namespace TowerDefence {
 
     // Struct Point
@@ -16,7 +18,11 @@ namespace TowerDefence {
 
         Point(int x, int y);
 
-        friend bool operator== (const Point &left, const Point &right);
+        friend std::istream &operator>>(std::istream &in, Point &point);
+
+        friend std::ostream &operator<<(std::ostream &out, const Point &point);
+
+        friend bool operator==(const Point &left, const Point &right);
     };
 
     // Class ObjectWithLocation
