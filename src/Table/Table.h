@@ -234,9 +234,9 @@ namespace TowerDefence {
     // Find data in Pair.
     template<class K, class D>
     D &Table<K, D>::find(const K &key) {
-        for (int i = 0; i < m_counter; i++)
-            if (key == m_array[i].key)
-                return m_array[i].data;
+        for (TableIterator<K, D> it = begin(); it != end(); ++it)
+            if (key == (*it).key)
+                return (*it).data;
     }
 
     // Indexing operator.

@@ -73,7 +73,6 @@ namespace TowerDefence {
     // Show Table.
     void Loader::showTable() {
         std::cout << "Castle Table:" << std::endl;
-
         for (TableIterator<int, CastleData> it = m_castleTable.begin(); it != m_castleTable.end(); ++it)
             std::cout << "Key: -> " << (*it).key << " - " << "Data: -> " << (*it).data << std::endl;
 
