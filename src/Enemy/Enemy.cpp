@@ -24,6 +24,10 @@ namespace TowerDefence {
         std::cout << "Second Constructor for Enemy: " << this << std::endl;
     }
 
+    void Enemy::createRoute(Landscape &landscape) {
+
+    }
+
     // Update data for Enemy.
     void Enemy::update() {
         //добавить про маршрут, про бафы аурами, про

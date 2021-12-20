@@ -20,7 +20,9 @@ namespace TowerDefence {
 
         bool avoidDamage();
 
-        virtual void update();
+        virtual void createRoute(Landscape &landscape);
+
+        virtual void update(float time);
     };
 
 } /* namespace TowerDefence */

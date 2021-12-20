@@ -8,7 +8,7 @@ namespace TowerDefence {
 
     // Empty constructor for Loader.
     Loader::Loader() : m_towerTable(), m_castleTable(), m_enemyTable() {
-        std::cout << "Empty Constructor for Loader: " << this << std::endl;
+//        std::cout << "Empty Constructor for Loader: " << this << std::endl;
     }
 
     // Load Table.
@@ -74,16 +74,16 @@ namespace TowerDefence {
     void Loader::showTable() {
         std::cout << "Castle Table:" << std::endl;
         for (TableIterator<int, CastleData> it = m_castleTable.begin(); it != m_castleTable.end(); ++it)
-            std::cout << "Key: -> " << (*it).key << " - " << "Data: -> " << (*it).data << std::endl;
+            std::cout << "Key: " << (*it).key << " -> " << "Data: " << (*it).data << std::endl;
 
         std::cout << "Tower Table:" << std::endl;
 
         for (TableIterator<int, TowerData> it = m_towerTable.begin(); it != m_towerTable.end(); ++it)
-            std::cout << "Key: -> " << (*it).key << " - " << "Data: -> " << (*it).data << std::endl;
+            std::cout << "Key: " << (*it).key << " -> " << "Data: " << (*it).data << std::endl;
 
         std::cout << "Enemy Table:" << std::endl;
         for (TableIterator<int, EnemyData> it = m_enemyTable.begin(); it != m_enemyTable.end(); ++it)
-            std::cout << "Key: -> " << (*it).key << " - " << "Data: -> " << (*it).data << std::endl;
+            std::cout << "Key: " << (*it).key << " -> " << "Data: " << (*it).data << std::endl;
 
     }
 

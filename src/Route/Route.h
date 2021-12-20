@@ -3,12 +3,19 @@
 #ifndef TOWER_DEFENCE_ROUTE_H
 #define TOWER_DEFENCE_ROUTE_H
 
+#include <vector>
+#include "../ObjectWithLocation/ObjectWithLocation.h"
+#include "../Landscape/Landscape.h"
+
 namespace TowerDefence {
 
     // Class Route.
     class Route {
     private:
-
+        std::vector<Point> path;
+        int counter;
+    public:
+        void createRoute(Landscape &landscape);
     };
 
 } /* namespace TowerDefence */

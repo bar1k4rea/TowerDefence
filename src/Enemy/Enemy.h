@@ -3,8 +3,11 @@
 #ifndef TOWER_DEFENCE_ENEMY_H
 #define TOWER_DEFENCE_ENEMY_H
 
+#include <vector>
+#include <SFML/Graphics.hpp>
 #include "../ObjectWithHealth/ObjectWithHealth.h"
 #include "../Castle/Castle.h"
+#include "../Landscape/Landscape.h"
 
 namespace TowerDefence {
 
@@ -14,6 +17,11 @@ namespace TowerDefence {
         int m_speed;
         int m_recovery;
         int m_damage;
+        std::vector<Point> m_route;
+        int m_counter;
+        sf::Image m_image;
+        sf::Texture m_texture;
+        sf::Sprite m_sprite;
     public:
         Enemy();
 
@@ -22,6 +30,8 @@ namespace TowerDefence {
         Enemy(const Point &point, int health, int maxHealth, int speed, int recovery, int damage);
 
         void attackCastle(Castle &castle);
+
+        virtual void createRoute(Landscape &landscape);
 
         virtual void update();
 
