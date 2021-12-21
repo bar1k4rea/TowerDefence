@@ -22,7 +22,7 @@ namespace TowerDefence {
 
         virtual void createRoute(Landscape &landscape);
 
-        virtual void update(float time);
+        virtual void update(sf::RenderWindow &window, float time);
     };
 
 } /* namespace TowerDefence */

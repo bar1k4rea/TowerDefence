@@ -11,14 +11,14 @@ namespace TowerDefence {
 
     class GameManager {
     private:
-        std::vector<LightEnemy> m_lightEnemy;
+        LightEnemy m_lightEnemy;
         Castle m_castle;
     public:
         GameManager() = default;
 
         void createEnemy(Landscape &landscape);
 
-        void update(float time);
+//        void update(float time);
     };
 }
 

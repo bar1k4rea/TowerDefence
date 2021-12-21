@@ -19,7 +19,11 @@ namespace TowerDefence {
     public:
         Landscape();
 
-        void loadMap(const std::string (&map)[25]);
+        void loadMap1(const std::string (&map)[25]);
+
+        void createMap();
+
+        void loadMap();
 
         Landscape(const std::string (&map)[HEIGHT]);
 

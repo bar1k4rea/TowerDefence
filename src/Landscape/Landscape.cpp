@@ -15,7 +15,42 @@ namespace TowerDefence {
             m_map[i] = map[i];
     }
 
-        void Landscape::loadMap(const std::string (&map)[25]) {
+    void Landscape::createMap() {
+
+    }
+
+    void Landscape::loadMap() {
+        std::string map[25] = {
+                "0000000000000000000000000000000000000000",
+                "0                                      0",
+                "0                                      0",
+                "0                                      0",
+                "0               C                      0",
+                "0                                      0",
+                "0                                      0",
+                "0                                      0",
+                "0                                      0",
+                "0                                      0",
+                "0                                      0",
+                "0                                      0",
+                "0                                      0",
+                "0                                      0",
+                "0                                      0",
+                "0                                      0",
+                "0                                      0",
+                "0                                      0",
+                "0                                      0",
+                "0                                      0",
+                "0                                      0",
+                "0                                      0",
+                "0                                      0",
+                "0                                      0",
+                "0000000000000000000000000000000000000000",
+        };
+        loadMap1(map);
+    }
+
+    void Landscape::loadMap1(const std::string (&map)[25]) {
         m_image.loadFromFile("../image/Texture.png");
         m_texture.loadFromImage(m_image);
         m_sprite.setTexture(m_texture);

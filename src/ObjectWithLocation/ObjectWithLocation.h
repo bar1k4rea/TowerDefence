@@ -9,8 +9,8 @@ namespace TowerDefence {
 
     // Struct Point
     struct Point {
-        int x;
-        int y;
+        float x;
+        float y;
 
         Point();
 
