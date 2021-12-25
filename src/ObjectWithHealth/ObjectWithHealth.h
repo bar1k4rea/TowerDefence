@@ -7,21 +7,27 @@
 
 namespace TowerDefence {
 
+    /**
+     * \brief Объект со здоровьем.
+     * \date 15.11.2021
+     * \author bar1k
+     * \param m_health Текущее количество здоровья объекта.
+     * \param m_maxHealth Максимальное количество здоровья объекта.
+     */
+
     // Class ObjectWithHealth
     class ObjectWithHealth : public ObjectWithLocation {
     protected:
-        int m_health;
-        int m_maxHealth;
+        float m_health;
+        float m_maxHealth;
     public:
         ObjectWithHealth();
 
-        ObjectWithHealth(const Point &point, int health);
-
         ObjectWithHealth(const Point &point, int health, int maxHealth);
 
-        void increaseHealth(int amount);
+        void increaseHealth(float amount);
 
-        void decreaseHealth(int amount);
+        void decreaseHealth(float amount);
 
         [[nodiscard]] bool isAlive() const;
 

@@ -6,67 +6,105 @@
 namespace TowerDefence {
 
     // Empty constructor for Enemy.
-    Enemy::Enemy() : ObjectWithHealth(), m_speed(0), m_recovery(0), m_damage(0) {
-        std::cout << "Empty Constructor for Enemy: " << this << std::endl;
-    }
+    Enemy::Enemy() : ObjectWithHealth(), m_speed(0), m_recovery(0), m_damage(0), m_route(), m_counter(0),
+                     m_isMove(false), m_image(), m_texture(), m_sprite() {}
+
 
     // First constructor for Enemy.
-    Enemy::Enemy(const Point &point, int health, int speed, int recovery, int damage) : ObjectWithHealth(point, health),
-                                                                                        m_speed(speed),
-                                                                                        m_recovery(recovery),
-                                                                                        m_damage(damage) {
-        std::cout << "First Constructor for Enemy: " << this << std::endl;
+    Enemy::Enemy(const Point &point, float health, float maxHealth, float speed, float recovery, float damage,
+                 const std::vector<Point> &route) : ObjectWithHealth(point, health, maxHealth), m_speed(speed),
+                                                    m_recovery(recovery), m_damage(damage), m_route(route),
+                                                    m_counter(0), m_isMove(true) {
+        m_image.loadFromFile("../image/Texture.png");
+        m_texture.loadFromImage(m_image);                   // ошибка при вызове более двух врагов, показывается
+        m_sprite.setTexture(m_texture);                    // белый квадрат, а не спрайт врага.
     }
 
-    // Second constructor for Enemy.
-    Enemy::Enemy(const Point &point, int health, int maxHealth, int speed, int recovery, int damage) : ObjectWithHealth(
-            point, health, maxHealth), m_speed(speed), m_recovery(recovery), m_damage(damage) {
-        std::cout << "Second Constructor for Enemy: " << this << std::endl;
-    }
+//    void Enemy::createRoute(Landscape &landscape) {
+//
+//    }
 
-    void Enemy::createRoute(Landscape &landscape) {
-
-    }
-
-    // Update data for Enemy.
-    void Enemy::update() {
-        //добавить про маршрут, про бафы аурами, про
-    }
+//    // Update data for Enemy.
+//    void Enemy::update() {
+//        //добавить про маршрут, про бафы аурами, про
+//    }
 
     // Attack Castle.
-    void Enemy::attackCastle(Castle& castle) {
+    void Enemy::attackCastle(Castle &castle) {
         if (m_point == castle.getPoint())
             castle.decreaseHealth(m_damage);
     }
 
-    // Getter for m_speed.
-    int Enemy::getSpeed() const {
+    float Enemy::getSpeed() const {
         return m_speed;
     }
 
-    // Setter for m_speed.
-    void Enemy::setSpeed(int mSpeed) {
+    void Enemy::setSpeed(float mSpeed) {
         m_speed = mSpeed;
     }
 
-    // Getter for m_recovery.
-    int Enemy::getRecovery() const {
+    float Enemy::getRecovery() const {
         return m_recovery;
     }
 
-    // Setter for m_recovery.
-    void Enemy::setRecovery(int mRecovery) {
+    void Enemy::setRecovery(float mRecovery) {
         m_recovery = mRecovery;
     }
 
-    // Getter for m_damage.
-    int Enemy::getDamage() const {
+    float Enemy::getDamage() const {
         return m_damage;
     }
 
-    // Setter for m_damage.
-    void Enemy::setDamage(int mDamage) {
+    void Enemy::setDamage(float mDamage) {
         m_damage = mDamage;
+    }
+
+    const std::vector<Point> &Enemy::getRoute() const {
+        return m_route;
+    }
+
+    void Enemy::setRoute(const std::vector<Point> &mRoute) {
+        m_route = mRoute;
+    }
+
+    int Enemy::getCounter() const {
+        return m_counter;
+    }
+
+    void Enemy::setCounter(int mCounter) {
+        m_counter = mCounter;
+    }
+
+    bool Enemy::getIsMove() const {
+        return m_isMove;
+    }
+
+    void Enemy::setIsMove(bool mIsMove) {
+        m_isMove = mIsMove;
+    }
+
+    const sf::Image &Enemy::getImage() const {
+        return m_image;
+    }
+
+    void Enemy::setImage(const sf::Image &mImage) {
+        m_image = mImage;
+    }
+
+    const sf::Texture &Enemy::getTexture() const {
+        return m_texture;
+    }
+
+    void Enemy::setTexture(const sf::Texture &mTexture) {
+        m_texture = mTexture;
+    }
+
+    const sf::Sprite &Enemy::getSprite() const {
+        return m_sprite;
+    }
+
+    void Enemy::setSprite(const sf::Sprite &mSprite) {
+        m_sprite = mSprite;
     }
 
 } /* namespace TowerDefence */

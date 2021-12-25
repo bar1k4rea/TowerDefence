@@ -6,31 +6,26 @@
 namespace TowerDefence {
 
     // Empty constructor for TowerData.
-    TowerData::TowerData() : radius(0), damage(0), rate(0), cost(0) {
-//        std::cout << "Empty Constructor for TowerData: " << this << std::endl;
-    }
+    TowerData::TowerData() : radius(0), damage(0), rapidity(0), cost(0) {}
 
     // First constructor for TowerData.
-    TowerData::TowerData(int radius, int damage, int rate, int cost) : radius(radius), damage(damage), rate(rate),
-                                                                       cost(cost) {
-//        std::cout << "First Constructor for TowerData: " << this << std::endl;
-    }
+    TowerData::TowerData(float radius, float damage, float rapidity, float cost) : radius(radius), damage(damage),
+                                                                                   rapidity(rapidity),
+                                                                                   cost(cost) {}
 
     // Copy constructor for TowerData.
     TowerData::TowerData(const TowerData &towerData) : radius(towerData.radius), damage(towerData.damage),
-                                                       rate(towerData.rate), cost(towerData.cost) {
-//        std::cout << "Copy Constructor for TowerData: " << this << std::endl;
-    }
+                                                       rapidity(towerData.rapidity), cost(towerData.cost) {}
 
     // Input for TowerData.
     std::istream &operator>>(std::istream &in, TowerData &towerData) {
-        in >> towerData.radius >> towerData.damage >> towerData.rate >> towerData.cost;
+        in >> towerData.radius >> towerData.damage >> towerData.rapidity >> towerData.cost;
         return in;
     }
 
     // Output for TowerData.
     std::ostream &operator<<(std::ostream &out, const TowerData &towerData) {
-        out << towerData.radius << ' ' << towerData.damage << ' ' << towerData.rate << ' ' << towerData.cost;
+        out << towerData.radius << ' ' << towerData.damage << ' ' << towerData.rapidity << ' ' << towerData.cost;
         return out;
     }
 

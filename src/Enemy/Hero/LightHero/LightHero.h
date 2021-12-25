@@ -8,6 +8,13 @@
 
 namespace TowerDefence {
 
+    /**
+    * @brief Легкий герой.
+    * @details Сочетание героя и лёгкой пехоты.
+    * @date 19.11.2021
+    * @author bar1k4real
+    */
+
     // Class LightHero.
     class LightHero : public LightEnemy, public Hero {
     public:

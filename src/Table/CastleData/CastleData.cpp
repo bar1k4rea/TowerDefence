@@ -6,21 +6,17 @@
 namespace TowerDefence {
 
     // Empty constructor for CastleData.
-    CastleData::CastleData() : profit(0), maxHealth(0), recovery(0), cost(0) {
-//        std::cout << "Empty Constructor for CastleData: " << this << std::endl;
-    }
+    CastleData::CastleData() : profit(0), maxHealth(0), recovery(0), cost(0) {}
 
     // First constructor for CastleData.
-    CastleData::CastleData(int profit, int maxHealth, int recovery, int cost) : profit(profit), maxHealth(maxHealth),
-                                                                                recovery(recovery), cost(cost) {
-//        std::cout << "First Constructor for CastleData: " << this << std::endl;
-    }
+    CastleData::CastleData(float profit, float maxHealth, float recovery, float cost) : profit(profit),
+                                                                                        maxHealth(maxHealth),
+                                                                                        recovery(recovery),
+                                                                                        cost(cost) {}
 
     // Copy constructor for CastleData.
     CastleData::CastleData(const CastleData &castleData) : profit(castleData.profit), maxHealth(castleData.maxHealth),
-                                                           recovery(castleData.recovery), cost(castleData.cost) {
-//        std::cout << "Copy Constructor for CastleData: " << this << std::endl;
-    }
+                                                           recovery(castleData.recovery), cost(castleData.cost) {}
 
     // Input for CastleData.
     std::istream &operator>>(std::istream &in, CastleData &castleData) {

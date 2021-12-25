@@ -8,6 +8,14 @@
 
 namespace TowerDefence {
 
+    /**
+* @brief Воздушная пехота.
+* @details Враг может предвигаться через водоёмыи и через горы, имеет ограниченнный боезапас.
+* @date 19.11.2021
+* @author bar1k4real
+*/
+
+
     // Class AirEnemy.
     class AirEnemy : public Enemy {
     protected:

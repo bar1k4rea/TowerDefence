@@ -5,16 +5,26 @@
 
 namespace TowerDefence {
 
+    /**
+     * \brief  Конфигурационные данные замка.
+     * \date 25.11.2021
+     * \author bar1k
+     * \param profit Прибыль замка.
+     * \param maxHealth Максимальное количество здоровья замка.
+     * \param recovery Регенерация замка.
+     * \param cost Стоимость улучшения замка.
+     */
+
     // Struct CastleData
     struct CastleData {
-        int profit;
-        int maxHealth;
-        int recovery;
-        int cost;
+        float profit;
+        float maxHealth;
+        float recovery;
+        float cost;
 
         CastleData();
 
-        CastleData(int profit, int maxHealth, int recovery, int cost);
+        CastleData(float profit, float maxHealth, float recovery, float cost);
 
         CastleData(const CastleData &castleData);
 

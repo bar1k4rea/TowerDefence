@@ -29,7 +29,7 @@ namespace TowerDefence {
     void menu();
     void loadingLoader(Loader &loader);
     void loadingLandscape(Landscape &Landscape);
-    void game(Landscape &landscape);
+    void game(Loader &loader, Landscape &landscape);
 
 } /* namespace TowerDefence */
 

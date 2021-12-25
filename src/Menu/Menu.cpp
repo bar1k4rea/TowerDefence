@@ -12,11 +12,13 @@ namespace TowerDefence {
         Landscape landscape;
         GameManager gameManager;
 
+        gameManager.m_counter = 0;
+
         std::cout << "Welcome to the game TowerDefence!" << std::endl;
         loadingLoader(loader);
         loadingLandscape(landscape);
 
-        game(landscape);
+        game(loader, landscape);
     }
 
     // Loading Loader.
@@ -48,21 +50,22 @@ namespace TowerDefence {
     }
 
     // Play game.
-    void game(Landscape &landscape) {
+    void game(Loader &loader, Landscape &landscape) {
+        float time;
         sf::RenderWindow window(sf::VideoMode(1280, 800), "TowerDefence");
         sf::Clock clock;
-//        GameManager gameManager;
-//        gameManager.createEnemy(landscape);
+        GameManager gameManager;
 
+        gameManager.m_counter = 1;
 
+        gameManager.createRoutes(landscape);
 
-        Point point(23, 2);
-        LightEnemy lightEnemy(point, 10, 10, 10, 10, 10);
-        lightEnemy.createRoute(landscape);
+//        Point point(1, 23);
+//        LightEnemy lightEnemy(point, 10, 10, 10, 10, 10);
+//        lightEnemy.createRoute(landscape);
 
         while(window.isOpen()) {
-            float time = clock.getElapsedTime().asSeconds();
-            clock.restart();
+            time = clock.getElapsedTime().asSeconds();
             sf::Event event{};
             while (window.pollEvent(event)) {
                 if (event.type == sf::Event::Closed)
@@ -71,8 +74,13 @@ namespace TowerDefence {
 
             window.clear();
             landscape.drawMap(window);
-            lightEnemy.update(window, time);
-//            gameManager.update(time);
+
+            gameManager.createEnemy(loader, landscape, time);
+
+            gameManager.update(window);
+//            gameManager.draw(window);
+
+//            lightEnemy.update(window, time);
             window.display();
         }
     }

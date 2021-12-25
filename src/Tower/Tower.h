@@ -11,6 +11,14 @@
 
 namespace TowerDefence {
 
+    /**
+     * \brief Замок.
+     * \date 15.11.2021
+     * \author bar1k
+     * \param m_level Текущий уровень башни.
+     * \param m_table Таблица уровней бащни с характеристиками.
+     */
+
     // Class Tower
     class Tower : public ObjectWithHealth {
     protected:
@@ -19,15 +27,11 @@ namespace TowerDefence {
     public:
         Tower();
 
-        Tower(const Point &point, int health, const Table<int, TowerData>& table);
-
         Tower(const Point &point, int health, int maxHealth, int level, const Table<int, TowerData>& table);
-
-        [[nodiscard]] int getRate();
 
         void upgrade(Castle &castle);
 
-        void attackEnemy(Enemy& enemy);
+        void attackEnemy(Enemy& enemy); // NOT READY
     };
 
 } /* namespace TowerDefence */

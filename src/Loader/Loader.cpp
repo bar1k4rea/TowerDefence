@@ -7,17 +7,16 @@
 namespace TowerDefence {
 
     // Empty constructor for Loader.
-    Loader::Loader() : m_towerTable(), m_castleTable(), m_enemyTable() {
-//        std::cout << "Empty Constructor for Loader: " << this << std::endl;
-    }
+    Loader::Loader() : m_towerTable(), m_castleTable(), m_enemyTable() {}
 
     // Load Table.
     void Loader::loadTable() {
         std::ifstream castleFile("../config/CastleData.txt"), enemyFile("../config/EnemyData.txt"), towerFile(
-                "../config/TowerData.txt");
+                "../config/TowerData.txt"), lairFile("../config/LairData.txt") ;
         Pair<int, CastleData> castlePair;
         Pair<int, TowerData> towerPair;
         Pair<int, EnemyData> enemyPair;
+        Pair<int, LairData> lairPair;
 
         while (castleFile >> castlePair)
             m_castleTable.push(castlePair);
@@ -30,15 +29,20 @@ namespace TowerDefence {
         while (enemyFile >> enemyPair)
             m_enemyTable.push(enemyPair);
         enemyFile.close();
+
+        while (lairFile >> lairPair)
+            m_lairTable.push(lairPair);
+        lairFile.close();
     }
 
     // Create Table.
     void Loader::createTable() {
         std::ofstream castleFile("../config/CastleData.txt"), enemyFile("../config/EnemyData.txt"), towerFile(
-                "../config/TowerData.txt");
+                "../config/TowerData.txt"), lairFile("../config/LairData.txt");
         CastleData castleData;
         TowerData towerData;
         EnemyData enemyData;
+        LairData lairData;
         int counter;
         std::string enemyType[N_ENEMY] = {"AIR ENEMY", "HEAVY ENEMY", "LIGHT ENEMY", "AIR HERO", "HEAVY HERO",
                                           "LIGHT HERO"};
@@ -60,6 +64,15 @@ namespace TowerDefence {
             towerFile << towerData << std::endl;
         }
         towerFile.close();
+
+        getNumber(counter, "Enter the number of enemies ->");
+        for (int i = 0; i < counter; i++) {
+            lairFile << i + 1 << ' ';
+            std::cout << "Enemy #" << i + 1 << '.' << std::endl;
+            getNumber(lairData, "Enter the data of the lair ->");
+            lairFile << lairData << std::endl;
+        }
+        lairFile.close();
 
         for (int i = 0; i < N_ENEMY; i++) {
             enemyFile << i << ' ';

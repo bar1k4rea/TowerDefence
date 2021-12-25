@@ -6,23 +6,12 @@
 namespace TowerDefence {
 
     // Empty constructor for Castle.
-    Castle::Castle() : ObjectWithHealth(), m_level(0), m_gold(0), m_table(Table<int, CastleData>()) {
-        std::cout << "Empty Constructor for Castle: " << this << std::endl;
-    }
-
-    // First constructor for Castle.
-    Castle::Castle(const Point &point, int health, const Table<int, CastleData> &table) : ObjectWithHealth(point, health),
-                                                                                          m_level(1), m_gold(0),
-                                                                                          m_table(table) {
-        std::cout << "First Constructor for Castle: " << this << std::endl;
-    }
+    Castle::Castle() : ObjectWithHealth(), m_level(0), m_gold(0), m_table() {}
 
     // Second constructor for Castle.
-    Castle::Castle(const Point &point, int health, int maxHealth, int level, int gold,
-                   const Table<int, CastleData> &table) : ObjectWithHealth(point, health, maxHealth), m_level(level),
-                                                          m_gold(gold), m_table(table) {
-        std::cout << "Second Constructor for Castle: " << this << std::endl;
-    }
+    Castle::Castle(const Point &point, float health, float maxHealth, float gold,
+                   const Table<int, CastleData> &table) : ObjectWithHealth(point, health, maxHealth), m_level(1),
+                                                          m_gold(gold), m_table(table) {}
 
     // Increase level for Castle.
     void Castle::upgrade() {
@@ -43,14 +32,28 @@ namespace TowerDefence {
         m_gold += m_table[m_level].profit;
     }
 
-    // Getter for m_gold.
-    int Castle::getGold() const {
+    int Castle::getLevel() const {
+        return m_level;
+    }
+
+    void Castle::setLevel(int level) {
+        m_level = level;
+    }
+
+    float Castle::getGold() const {
         return m_gold;
     }
 
-    // Setter for m_gold.
-    void Castle::setGold(int gold) {
-        m_gold = gold;
+    void Castle::setGold(float Gold) {
+        m_gold = Gold;
+    }
+
+    const Table<int, CastleData> &Castle::getTable() const {
+        return m_table;
+    }
+
+    void Castle::setTable(const Table<int, CastleData> &table) {
+        m_table = table;
     }
 
 } /* namespace TowerDefence */

@@ -10,42 +10,79 @@
 #include "../Landscape/Landscape.h"
 
 namespace TowerDefence {
+    /**
+     * \brief Враг.
+     * \date 15.11.2021
+     * \author bar1k4real
+     * \param m_speed Скорость врага.
+     * \param m_recovery Скорость регенерации количества здоровья у врага.
+     * \param m_damage Урон замку от врага.
+     * \param m_route Маршрут врага до замка.
+     * \param m_counter Счётчик номера клетки в маршруте у врага.
+     * \param m_image Изображение врага.
+     * \param m_texture Текстура врага.
+     * \param m_sprite Спрайт врага.
+     */
 
     // class Enemy
     class Enemy : public ObjectWithHealth {
     protected:
-        int m_speed;
-        int m_recovery;
-        int m_damage;
+        float m_speed;
+        float m_recovery;
+        float m_damage;
         std::vector<Point> m_route;
         int m_counter;
+        bool m_isMove;
         sf::Image m_image;
         sf::Texture m_texture;
         sf::Sprite m_sprite;
     public:
         Enemy();
 
-        Enemy(const Point &point, int health, int speed, int recovery, int damage);
+        Enemy(const Point &point, float health, float maxHealth, float speed, float recovery, float damage,
+              const std::vector<Point> &route);
 
-        Enemy(const Point &point, int health, int maxHealth, int speed, int recovery, int damage);
+        void attackCastle(Castle &castle); // NOT READY
 
-        void attackCastle(Castle &castle);
+//        virtual void createRoute(Landscape &landscape);
+//
+//        virtual void update(sf::RenderWindow &window);
 
-        virtual void createRoute(Landscape &landscape);
+        float getSpeed() const;
 
-        virtual void update();
+        void setSpeed(float mSpeed);
 
-        [[nodiscard]] int getSpeed() const;
+        float getRecovery() const;
 
-        void setSpeed(int speed);
+        void setRecovery(float mRecovery);
 
-        [[nodiscard]] int getRecovery() const;
+        float getDamage() const;
 
-        void setRecovery(int recovery);
+        void setDamage(float mDamage);
 
-        [[nodiscard]] int getDamage() const;
+        const std::vector<Point> &getRoute() const;
 
-        void setDamage(int damage);
+        void setRoute(const std::vector<Point> &mRoute);
+
+        int getCounter() const;
+
+        void setCounter(int mCounter);
+
+        bool getIsMove() const;
+
+        void setIsMove(bool mIsMove);
+
+        const sf::Image &getImage() const;
+
+        void setImage(const sf::Image &mImage);
+
+        const sf::Texture &getTexture() const;
+
+        void setTexture(const sf::Texture &mTexture);
+
+        const sf::Sprite &getSprite() const;
+
+        void setSprite(const sf::Sprite &mSprite);
     };
 
 } /* namespace TowerDefence */

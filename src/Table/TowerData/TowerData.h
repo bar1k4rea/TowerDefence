@@ -5,16 +5,26 @@
 
 namespace TowerDefence {
 
+    /**
+     * \brief  Конфигурационные данные врага.
+     * \date 25.11.2021
+     * \author bar1k
+     * \param radius Радиус атаки башни.
+     * \param damage Урон врагам от башни.
+     * \param rapidity Скорострельность башни.
+     * \param cost Скорость улучшения башни.
+     */
+
     // Struct TowerData
     struct TowerData {
-        int radius;
-        int damage;
-        int rate;
-        int cost;
+        float radius;
+        float damage;
+        float rapidity;
+        float cost;
 
         TowerData();
 
-        TowerData(int radius, int damage, int rate, int cost);
+        TowerData(float radius, float damage, float rapidity, float cost);
 
         TowerData(const TowerData &towerData);
 

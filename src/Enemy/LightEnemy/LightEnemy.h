@@ -7,22 +7,27 @@
 
 namespace TowerDefence {
 
+    /**
+     * \brief Лёгкая пехота.
+     * \date 15.11.2021
+     * \author bar1k4real
+     * \param m_chance Шанс уклонения врага от урона башни.
+     */
+
     // Class LightEnemy.
     class LightEnemy : public Enemy {
-    protected:
-        int m_chance;
+    private:
+        float m_chance;
     public:
         LightEnemy();
 
-        LightEnemy(const Point &point, int health, int speed, int recovery, int damage, int chance);
-
-        LightEnemy(const Point &point, int health, int maxHealth, int speed, int recovery, int damage, int chance);
+        LightEnemy(const Point &point, float health, float maxHealth, float speed, float recovery, float damage, std::vector<Point> &route, float chance);
 
         bool avoidDamage();
 
         virtual void createRoute(Landscape &landscape);
 
-        virtual void update(sf::RenderWindow &window, float time);
+        virtual void update(sf::RenderWindow &window);
     };
 
 } /* namespace TowerDefence */

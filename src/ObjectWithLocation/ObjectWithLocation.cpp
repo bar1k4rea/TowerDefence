@@ -6,49 +6,11 @@
 
 namespace TowerDefence {
 
-    // Empty constructor for Point.
-    Point::Point() : x(0), y(0) {
-//        std::cout << "Empty Constructor for Point: " << this << std::endl;
-    }
-
-    // First constructor for Point.
-    Point::Point(int x) : x(x), y(0) {
-//        std::cout << "First Constructor for Point: " << this << std::endl;
-    }
-
-    // Second constructor for Point.
-    Point::Point(int x, int y) : x(x), y(y) {
-//        std::cout << "Second Constructor for Point: " << this << std::endl;
-    }
-
-    // Input for Point.
-    std::istream &operator>>(std::istream &in, Point &point) {
-        in >> point.x >> point.y;
-        return in;
-    }
-
-    // Output for Point.
-    std::ostream &operator<<(std::ostream &out, const Point &point) {
-        out << point.x << ' ' << point.y;
-        return out;
-    }
-
-    // Comparison operator for Point.
-    bool operator==(const Point &left, const Point &right) {
-        if ((left.x == right.x) && (left.y == right.y))
-            return true;
-        return false;
-    }
-
     // Empty constructor for ObjectWithLocation.
-    ObjectWithLocation::ObjectWithLocation() : m_point() {
-//        std::cout << "Empty Constructor for ObjectWithLocation: " << this << std::endl;
-    }
+    ObjectWithLocation::ObjectWithLocation() : m_point() {}
 
     // First constructor for ObjectWithLocation.
-    ObjectWithLocation::ObjectWithLocation(const Point &point) : m_point(point) {
-//        std::cout << "First Constructor for ObjectWithLocation: " << this << std::endl;
-    }
+    ObjectWithLocation::ObjectWithLocation(const Point &point) : m_point(point) {}
 
     // Calculate distance.
     double ObjectWithLocation::distance(const Point &point) const {

@@ -21,15 +21,11 @@ namespace TowerDefence {
 
     // Empty constructor for Pair.
     template<class K, class D>
-    Pair<K, D>::Pair() : key(), data() {
-//        std::cout << "Empty Constructor for Pair: " << this << std::endl;
-    }
+    Pair<K, D>::Pair() : key(), data() {}
 
     // First constructor for Pair.
     template<class K, class D>
-    Pair<K, D>::Pair(K key, D data) : key(key), data(data) {
-//        std::cout << "First Constructor for Pair: " << this << std::endl;
-    }
+    Pair<K, D>::Pair(K key, D data) : key(key), data(data) {}
 
     // Input for Pair.
     template<class K, class D>
@@ -66,15 +62,11 @@ namespace TowerDefence {
 
     // Empty constructor for TableIterator.
     template<class K, class D>
-    TableIterator<K, D>::TableIterator() : m_pair(nullptr) {
-//        std::cout << "Empty Constructor for TableIterator: " << this << std::endl;
-    }
+    TableIterator<K, D>::TableIterator() : m_pair(nullptr) {}
 
     // Copy constructor for TableIterator.
     template<class K, class D>
-    TableIterator<K, D>::TableIterator(Pair<K, D> *pair) : m_pair(pair) {
-//        std::cout << "Copy Constructor for TableIterator: " << this << std::endl;
-    }
+    TableIterator<K, D>::TableIterator(Pair<K, D> *pair) : m_pair(pair) {}
 
     template<class K, class D>
     Pair<K, D> &TableIterator<K, D>::operator*() {
@@ -138,9 +130,7 @@ namespace TowerDefence {
 
     // Empty constructor for Table.
     template<class K, class D>
-    Table<K, D>::Table() : m_counter(0), m_array(nullptr) {
-//        std::cout << "Empty Constructor for Table: " << this << std::endl;
-    }
+    Table<K, D>::Table() : m_counter(0), m_array(nullptr) {}
 
     // First constructor for Table.
     template<class K, class D>
@@ -152,7 +142,6 @@ namespace TowerDefence {
             for (int i = 0; i < m_counter; i++)
                 m_array[i] = array[i];
         }
-//        std::cout << "First Constructor for Table: " << this << std::endl;
     }
 
     // Copy constructor for Table.
@@ -165,7 +154,6 @@ namespace TowerDefence {
             for (int i = 0; i < m_counter; i++)
                 m_array[i] = table.m_array[i];
         }
-//        std::cout << "Copy Constructor for Table: " << this << std::endl;
     }
 
     // Move constructor for Table.
@@ -173,7 +161,6 @@ namespace TowerDefence {
     Table<K, D>::Table(Table<K, D> &&table) noexcept : m_counter(table.m_counter), m_array(table.m_array) {
         table.m_counter = 0;
         table.m_array = nullptr;
-//        std::cout << "Move Constructor for Table: " << this << std::endl;
     }
 
     // Destructor for Table.
@@ -181,7 +168,6 @@ namespace TowerDefence {
     Table<K, D>::~Table() {
         m_counter = 0;
         delete[] m_array;
-//        std::cout << "Destructor for Table: " << this << std::endl;
     }
 
     // Copy assignment operator for Table.
@@ -198,7 +184,6 @@ namespace TowerDefence {
                     m_array[i] = table.m_array[i];
             }
         }
-//        std::cout << "Copy Assignment Operator for Table: " << this << " = " << &table << std::endl;
         return *this;
     }
 
@@ -212,7 +197,6 @@ namespace TowerDefence {
             table.m_counter = 0;
             table.m_array = nullptr;
         }
-//        std::cout << "Move Assignment Operator for Table: " << this << " = " << &table << std::endl;
         return *this;
     }
 
@@ -237,6 +221,7 @@ namespace TowerDefence {
         for (TableIterator<K, D> it = begin(); it != end(); ++it)
             if (key == (*it).key)
                 return (*it).data;
+        return (*begin()).data;
     }
 
     // Indexing operator.

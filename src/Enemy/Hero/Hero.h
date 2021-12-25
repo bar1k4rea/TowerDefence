@@ -8,6 +8,13 @@
 
 namespace TowerDefence {
 
+    /**
+    * @brief Герой.
+    * @details Основной класс герой, то есть враг, который обладает аурами.
+    * @date 15.11.2021
+    * @author bar1k4real
+    */
+
     // Class Hero.
     class Hero {
     protected:

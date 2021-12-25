@@ -5,6 +5,14 @@
 
 namespace TowerDefence {
 
+    /**
+* @brief Тип героев.
+* @details 6 типов: легкая, тяжелая и воздушная пехота, а также герои.
+* @date 19.11.2021
+* @author bar1k4real
+*/
+
+
     // Enum EnemyType
     enum EnemyType {
         AIR_ENEMY,

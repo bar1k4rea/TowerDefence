@@ -9,15 +9,17 @@
 #include "../Table/CastleData/CastleData.h"
 #include "../Table/TowerData/TowerData.h"
 #include "../Table/EnemyData/EnemyData.h"
+#include "../Table/LairData/LairData.h"
 
 namespace TowerDefence {
 
     // Class Loader
     class Loader {
-    private:
+    public:
         Table<int, CastleData> m_castleTable;
         Table<int, TowerData> m_towerTable;
         Table<int, EnemyData> m_enemyTable;
+        Table<int, LairData> m_lairTable;
         static const int N_ENEMY = 6;
     public:
         Loader();

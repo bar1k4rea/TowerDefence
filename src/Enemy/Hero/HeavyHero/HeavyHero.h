@@ -8,6 +8,14 @@
 
 namespace TowerDefence {
 
+    /**
+    * @brief Тяжёлый герой.
+    * @details Сочетание героя и тяжёлой пехоты.
+    * @date 19.11.2021
+    * @author bar1k4real
+    */
+
+
     // Class HeavyHero.
     class HeavyHero : public HeavyEnemy, public Hero {
     public:

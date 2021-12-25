@@ -6,6 +6,14 @@
 #include "../Enemy.h"
 #include "../../Wall/Wall.h"
 
+/**
+* @brief Тяжёлая пехота.
+* @details Тяжелая пехота, атакет стены на расстоянии, маенькая скорость и большой урон.
+* @date 15.11.2021
+* @author bar1k4real
+*/
+
+
 namespace TowerDefence {
 
     // Class LightEnemy.

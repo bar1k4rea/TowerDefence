@@ -3,27 +3,16 @@
 #ifndef TOWER_DEFENCE_OBJECT_WITH_LOCATION_H
 #define TOWER_DEFENCE_OBJECT_WITH_LOCATION_H
 
-#include <iostream>
+#include "../Point/Point.h"
 
 namespace TowerDefence {
 
-    // Struct Point
-    struct Point {
-        float x;
-        float y;
-
-        Point();
-
-        explicit Point(int x);
-
-        Point(int x, int y);
-
-        friend std::istream &operator>>(std::istream &in, Point &point);
-
-        friend std::ostream &operator<<(std::ostream &out, const Point &point);
-
-        friend bool operator==(const Point &left, const Point &right);
-    };
+    /**
+     * \brief Объект с местонахождением.
+     * \date 15.11.2021
+     * \author bar1k
+     * \param m_point Точка на плоскости.
+     */
 
     // Class ObjectWithLocation
     class ObjectWithLocation {

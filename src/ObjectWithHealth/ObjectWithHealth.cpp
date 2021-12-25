@@ -6,36 +6,26 @@
 namespace TowerDefence {
 
     // Empty constructor for ObjectWithHealth.
-    ObjectWithHealth::ObjectWithHealth() : m_health(0), m_maxHealth(0), ObjectWithLocation() {
-        std::cout << "Empty Constructor for ObjectWithHealth: " << this << std::endl;
-    }
+    ObjectWithHealth::ObjectWithHealth() : m_health(0), m_maxHealth(0), ObjectWithLocation() {}
 
     // First constructor for ObjectWithHealth.
-    ObjectWithHealth::ObjectWithHealth(const Point &point, int health) : ObjectWithLocation(point),
-                                                                         m_health(health), m_maxHealth(health) {
-        std::cout << "First Constructor for ObjectWithHealth: " << this << std::endl;
-    }
-
-    // Second constructor for ObjectWithHealth.
     ObjectWithHealth::ObjectWithHealth(const Point &point, int health, int maxHealth) : ObjectWithLocation(point),
                                                                                         m_health(health),
-                                                                                        m_maxHealth(maxHealth) {
-        std::cout << "Second Constructor for ObjectWithHealth: " << this << std::endl;
-    }
+                                                                                        m_maxHealth(maxHealth) {}
 
     // Increase health.
-    void ObjectWithHealth::increaseHealth(int amount) {
-        m_health = std::max(m_health + amount, m_maxHealth);
+    void ObjectWithHealth::increaseHealth(float amount) {
+        m_health = std::max<float>(m_health + amount, m_maxHealth);
     }
 
     // Decrease health.
-    void ObjectWithHealth::decreaseHealth(int amount) {
-        m_health = std::min(m_health - amount, 0);
+    void ObjectWithHealth::decreaseHealth(float amount) {
+        m_health = std::min<float>(m_health - amount, 0);
     }
 
     // Check health.
     bool ObjectWithHealth::isAlive() const {
-        return m_health > 0;
+        return m_health == 0;
     }
 
     // Getter for m_health.

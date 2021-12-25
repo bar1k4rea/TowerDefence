@@ -5,20 +5,35 @@
 
 namespace TowerDefence {
 
+    /**
+     * \brief  Конфигурационные данные врага.
+     * \date 25.11.2021
+     * \author bar1k
+     * \param maxHhealth Максимальное количество здоровья врага.
+     * \param recovery Скорость регенерации количества здоровья у врага.
+     * \param damage Урон замку от врага.
+     * \param speed Скорость врага.
+     * \param hit Урон стенам от врага.
+     * \param chance Шанс уклонения врага от урона башни.
+     * \param radius Радиус атаки врвга.
+     * \param ammunition Боезапас врага.
+     */
+
     // Struct EnemyData
     struct EnemyData {
-        int health;
-        int recovery;
-        int damage;
-        int speed;
-        int hit;
-        int chance;
-        int radius;
-        int ammunition;
+        float maxHealth;
+        float recovery;
+        float damage;
+        float speed;
+        float hit;
+        float chance;
+        float radius;
+        float ammunition;
 
         EnemyData();
 
-        EnemyData(int health, int recovery, int damage, int speed, int hit, int chance, int radius, int ammunition);
+        EnemyData(float maxHealth, float recovery, float damage, float speed, float hit, float chance, float radius,
+                  float ammunition);
 
         EnemyData(const EnemyData &enemyData);
 

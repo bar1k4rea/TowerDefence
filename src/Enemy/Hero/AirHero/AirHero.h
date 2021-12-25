@@ -8,6 +8,14 @@
 
 namespace TowerDefence {
 
+    /**
+    * @brief Воздушный герой.
+    * @details Сочетание героя и воздушной пехоты.
+    * @date 15.11.2021
+    * @author bar1k4real
+    */
+
+
     // Class AirHero.
     class AirHero : public AirEnemy, public Hero {
     public:

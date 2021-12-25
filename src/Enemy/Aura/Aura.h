@@ -5,6 +5,14 @@
 
 namespace TowerDefence {
 
+    /**
+* @brief Аура.
+* @details Аура содержит 4 харктеричтики: скорость, макисмальное здоровье, регенрация, и урон.
+* @date 19.11.2021
+* @author bar1k4real
+*/
+
+
     // Struct Aura.
     struct Aura {
         int speed;
