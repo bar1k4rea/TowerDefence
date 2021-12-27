@@ -26,7 +26,7 @@ namespace TowerDefence {
 
         bool avoidDamage();
 
-        int update(sf::RenderWindow &window);
+        virtual int update(sf::RenderWindow &window);
     };
 
 } /* namespace TowerDefence */

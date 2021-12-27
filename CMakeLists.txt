@@ -27,7 +27,8 @@ add_executable(TowerDefence main.cpp
                             src/Menu/Menu.h src/Menu/Menu.cpp src/CorrectInput/CorrectInput.h
                             src/Wall/Wall.h src/Wall/Wall.cpp
                             src/Enemy/HeavyEnemy/HeavyEnemy.h src/Enemy/HeavyEnemy/HeavyEnemy.cpp
-                            src/Enemy/AirEnemy/AirEnemy.h src/Enemy/AirEnemy/AirEnemy.cpp)
+                            src/Enemy/AirEnemy/AirEnemy.h src/Enemy/AirEnemy/AirEnemy.cpp
+                            src/Enemy/Hero/LightHero/LightHero.h src/Enemy/Hero/LightHero/LightHero.cpp)
 
 
 #add_executable(TowerDefence main.cpp src/ObjectWithHealth/ObjectWithHealth.h src/ObjectWithHealth/ObjectWithHealth.cpp

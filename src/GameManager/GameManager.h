@@ -64,12 +64,6 @@ namespace TowerDefence {
 
         void createAirEnemy();
 
-        void createLightHero();
-
-        void createHeavyHero();
-
-        void createAirHero();
-
         void createOrRenovateWall(float pixelX, float pixelY);
 
         void createWall(int x, int y);
@@ -108,3 +102,9 @@ namespace TowerDefence {
 }
 
 #endif /* TOWER_DEFENCE_GAME_MANAGER_H */
+
+//        void createLightHero();
+//
+//        void createHeavyHero();
+//
+//        void createAirHero();

@@ -35,6 +35,7 @@ namespace TowerDefence {
         int m_counterOfWayPoint;
         int m_numberOfWayPoint;
         bool m_isMove;
+        bool m_isUseAura;
         sf::Image m_image;
         sf::Texture m_texture;
         sf::Sprite m_sprite;

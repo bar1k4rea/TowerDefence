@@ -29,6 +29,10 @@ namespace TowerDefence {
         void attackWall(Wall &wall);
 
         virtual int update(sf::RenderWindow &window);
+
+        float getMAmmunition() const;
+
+        void setMAmmunition(float mAmmunition);
     };
 
 } /* namespace TowerDefence */

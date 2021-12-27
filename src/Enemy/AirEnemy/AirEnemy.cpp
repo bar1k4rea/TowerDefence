@@ -45,5 +45,13 @@ namespace TowerDefence {
         return 0;
     }
 
+    float AirEnemy::getMAmmunition() const {
+        return m_ammunition;
+    }
+
+    void AirEnemy::setMAmmunition(float mAmmunition) {
+        m_ammunition = mAmmunition;
+    }
+
 } /* namespace TowerDefence */
 

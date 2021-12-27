@@ -7,14 +7,14 @@ namespace TowerDefence {
 
     // Empty constructor for Enemy.
     Enemy::Enemy() : ObjectWithHealth(), m_speed(0), m_recovery(0), m_damage(0), m_route(), m_counterOfWayPoint(0),
-                     m_isMove(false), m_image(), m_texture(), m_sprite() {}
+                     m_isMove(false), m_isUseAura(false), m_image(), m_texture(), m_sprite() {}
 
 
     // First constructor for Enemy.
     Enemy::Enemy(const Point &point, float health, float maxHealth, float speed, float recovery, float damage,
                  const std::vector<Point> &route) : ObjectWithHealth(point, health, maxHealth), m_speed(speed),
                                                     m_recovery(recovery), m_damage(damage), m_route(route),
-                                                    m_counterOfWayPoint(0), m_isMove(true) {
+                                                    m_counterOfWayPoint(0), m_isMove(true), m_isUseAura(false) {
         m_numberOfWayPoint = m_route.size();
         m_image.loadFromFile("../image/Texture.png");
         m_texture.loadFromImage(m_image);                   // ошибка при вызове более двух врагов, показывается

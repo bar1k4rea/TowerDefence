@@ -30,7 +30,6 @@ namespace TowerDefence {
         int x = m_route[m_counterOfWayPoint].x, y = m_route[m_counterOfWayPoint].y;
         float distance = std::sqrt((x - m_point.x) * (x - m_point.x) + (y - m_point.y) * (y - m_point.y));
 
-
         if (m_isMove) {
             if (distance > 0.1) {
                 m_point.x += m_speed * (x - m_point.x) / distance;

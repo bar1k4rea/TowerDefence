@@ -60,9 +60,9 @@ namespace TowerDefence {
                 if (m_map[i][j] == 'C')
                     m_sprite.setTextureRect(sf::IntRect(192, 0, 32, 32));
                 if (m_map[i][j] == 'B')
-                    m_sprite.setTextureRect((sf::IntRect(192, 0, 32, 32)));
+                    m_sprite.setTextureRect((sf::IntRect(224, 0, 32, 32)));
                 if (m_map[i][j] == 'T')
-                    m_sprite.setTextureRect(sf::IntRect(192, 0, 32, 32));
+                    m_sprite.setTextureRect(sf::IntRect(256, 0, 32, 32));
                 m_sprite.setPosition(32 * j, 32 * i);
                 window.draw(m_sprite);
             }

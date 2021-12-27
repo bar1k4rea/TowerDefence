@@ -15,10 +15,12 @@ namespace TowerDefence {
 
     // Struct Aura.
     struct Aura {
-        int speed;
-        int maxHealth;
-        int recovery;
-        int damage;
+        float speed;
+        float maxHealth;
+        float recovery;
+        float damage;
+
+        Aura(float speed, float maxHealth, float recovery, float damage) : speed(speed), maxHealth(maxHealth), recovery(recovery), damage(damage) {}
     };
 
 } /* namespace TowerDefence */

@@ -240,15 +240,6 @@ namespace TowerDefence {
         m_enemies.push_back(airEnemySharedPtr);
     }
 
-    // Create LightHero.
-    void GameManager::createLightHero() {}
-
-    // Create HeavyHero.
-    void GameManager::createHeavyHero() {}
-
-    // Create AirHero.
-    void GameManager::createAirHero() {}
-
     // Create or renovate Wall.
     void GameManager::createOrRenovateWall(float pixelX, float pixelY) {
         int x = pixelX / 32, y = pixelY / 32;
@@ -371,7 +362,19 @@ namespace TowerDefence {
 
     // Air enemy attacks wall.
     void GameManager::airEnemyAttackWall(int i) {
+        int ammunition = dynamic_cast<AirEnemy*>(m_enemies[i].operator->())->getMAmmunition() - 1;
 
+        if (ammunition + 1 == 0)
+            m_enemies[i]->setIsMove(true);
+
+        if (ammunition + 1 != 0) {
+            for (int j = 0; j < m_walls.size(); j++)
+                if (1 > m_enemies[i]->distance(m_walls[j]->getPoint())) {
+                    m_walls[j]->decreaseHealth(loader->m_enemyTable[2].hit);
+                    dynamic_cast<AirEnemy *>(m_enemies[i].operator->())->setMAmmunition(ammunition);
+                    break;
+                }
+        }
     }
 
     // Global update.
@@ -400,21 +403,7 @@ namespace TowerDefence {
 
     }
 
-    void GameManager::updateLightEnemy(sf::RenderWindow &window, int i) {
-        int action;
-        Point point = m_routesForLightOrHeavyEnemies[m_enemies[i]->getCounter()];
-
-        if (landscape->getCell(point.y, point.x) == 'B')
-            m_enemies[i]->setIsMove(false);
-        else
-            m_enemies[i]->setIsMove(true);
-        action = m_enemies[i]->update(window);
-        if (action == -1) {
-            m_castle->decreaseHealth(m_enemies[i]->getDamage());
-            m_enemies.erase(m_enemies.begin() + i);
-        }
-    }
-
+    // Update heavy enemy.
     void GameManager::updateHeavyEnemy(sf::RenderWindow &window, int i) {
         int action;
 
@@ -434,8 +423,33 @@ namespace TowerDefence {
         }
     }
 
+    // Update light enemy.
+    void GameManager::updateLightEnemy(sf::RenderWindow &window, int i) {
+        int action;
+        Point point = m_routesForLightOrHeavyEnemies[m_enemies[i]->getCounter()];
+
+        if (landscape->getCell(point.y, point.x) == 'B')
+            m_enemies[i]->setIsMove(false);
+        else
+            m_enemies[i]->setIsMove(true);
+        action = m_enemies[i]->update(window);
+        if (action == -1) {
+            m_castle->decreaseHealth(m_enemies[i]->getDamage());
+            m_enemies.erase(m_enemies.begin() + i);
+        }
+    }
+
+    // Update air enemy.
     void GameManager::updateAirEnemy(sf::RenderWindow &window, int i) {
         int action;
+        int ammunition = dynamic_cast<AirEnemy*>(m_enemies[i].operator->())->getMAmmunition();
+        Point point = m_routesForAirEnemies[m_enemies[i]->getCounter() - 1];
+
+        m_enemies[i]->setIsMove(true);
+
+        if (landscape->getCell(point.y, point.x) == 'B' && ammunition != 0)
+            m_enemies[i]->setIsMove(false);
+
 
         action = m_enemies[i]->update(window);
         if (action == -1) {
@@ -445,3 +459,12 @@ namespace TowerDefence {
     }
 
 } /* namespace TowerDefence */
+
+// Create LightHero.
+//    void GameManager::createLightHero() {}
+//
+//    // Create HeavyHero.
+//    void GameManager::createHeavyHero() {}
+//
+//    // Create AirHero.
+//    void GameManager::createAirHero() {}
