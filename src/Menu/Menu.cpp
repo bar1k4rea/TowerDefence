@@ -1,86 +1,59 @@
 /* Created by bar1k on 19.12.2021. */
 
+
+
 #include "Menu.h"
-#include "../GameManager/GameManager.h"
-#include "../Enemy/LightEnemy/LightEnemy.h"
 
 namespace TowerDefence {
 
     // Main function
     void menu() {
-        Loader loader;
-        Landscape landscape;
         GameManager gameManager;
 
-        gameManager.m_counter = 0;
-
         std::cout << "Welcome to the game TowerDefence!" << std::endl;
-        loadingLoader(loader);
-        loadingLandscape(landscape);
+        gameManager.loadingLoader();
+        gameManager.loadingLandscape();
+        gameManager.createRoutes();
 
-        game(loader, landscape);
-    }
-
-    // Loading Loader.
-    void loadingLoader(Loader &loader) {
-        int option;
-        std::cout << "Do you want to change the configuration files? (0 - No, 1 - Yes) -> ";
-        getNumber(option);
-        if (option) {
-            std::cout << "Are you sure? (0 - No, 1 - Yes) -> ";
-            getNumber(option);
-            if (option)
-                loader.createTable();
+        try {
+            play(gameManager);
         }
-        loader.loadTable();
-    }
-
-    // Loading Landscape.
-    void loadingLandscape(Landscape &landscape) {
-        int option;
-        std::cout << "Do you want to change landscape design? (0 - No, 1 - Yes) -> ";
-        getNumber(option);
-        if (option) {
-            std::cout << "Are you sure? (0 - No, 1 - Yes) -> ";
-            getNumber(option);
-            if (option)
-                landscape.createMap();
+        catch (std::exception &unknownException) {
+            std::cout << unknownException.what() << std::endl;
         }
-        landscape.loadMap();
     }
 
     // Play game.
-    void game(Loader &loader, Landscape &landscape) {
+    void play(GameManager &gameManager) {
         float time;
-        sf::RenderWindow window(sf::VideoMode(1280, 800), "TowerDefence");
-        sf::Clock clock;
-        GameManager gameManager;
-
-        gameManager.m_counter = 1;
-
-        gameManager.createRoutes(landscape);
-
-//        Point point(1, 23);
-//        LightEnemy lightEnemy(point, 10, 10, 10, 10, 10);
-//        lightEnemy.createRoute(landscape);
+        sf::Clock clockForSpawnEnemy;
+        sf::Clock clockForGame;
+        sf::RenderWindow window(sf::VideoMode(1280, 800), "Tower Defence");
 
         while(window.isOpen()) {
-            time = clock.getElapsedTime().asSeconds();
+            time = clockForSpawnEnemy.getElapsedTime().asSeconds();
             sf::Event event{};
-            while (window.pollEvent(event)) {
-                if (event.type == sf::Event::Closed)
-                    window.close();
+
+            try {
+                while (window.pollEvent(event)) {
+                    if (event.type == sf::Event::Closed)
+                        window.close();
+                    if (event.type == sf::Event::MouseButtonPressed) {
+                        if (event.mouseButton.button == sf::Mouse::Left)
+                            gameManager.createOrUpgradeTower(event.mouseButton.x, event.mouseButton.y);
+                        else if (event.mouseButton.button == sf::Mouse::Right)
+                            gameManager.createOrRenovateWall(event.mouseButton.x, event.mouseButton.y);
+                    }
+                }
+            }
+            catch (std::exception &smthException) {
+                std::cout << smthException.what() << std::endl;
             }
 
             window.clear();
-            landscape.drawMap(window);
-
-            gameManager.createEnemy(loader, landscape, time);
-
-            gameManager.update(window);
-//            gameManager.draw(window);
-
-//            lightEnemy.update(window, time);
+            gameManager.drawMap(window);
+            gameManager.createEnemy(time);
+            gameManager.update(window, clockForGame);
             window.display();
         }
     }

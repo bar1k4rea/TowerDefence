@@ -21,13 +21,12 @@ namespace TowerDefence {
     public:
         LightEnemy();
 
-        LightEnemy(const Point &point, float health, float maxHealth, float speed, float recovery, float damage, std::vector<Point> &route, float chance);
+        LightEnemy(const Point &point, float health, float maxHealth, float speed, float recovery, float damage,
+                   std::vector<Point> &route, float chance);
 
         bool avoidDamage();
 
-        virtual void createRoute(Landscape &landscape);
-
-        virtual void update(sf::RenderWindow &window);
+        int update(sf::RenderWindow &window);
     };
 
 } /* namespace TowerDefence */

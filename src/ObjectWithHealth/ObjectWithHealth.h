@@ -29,7 +29,7 @@ namespace TowerDefence {
 
         void decreaseHealth(float amount);
 
-        [[nodiscard]] bool isAlive() const;
+        [[nodiscard]] bool isNotAlive() const;
 
         [[nodiscard]] int getHealth() const;
 

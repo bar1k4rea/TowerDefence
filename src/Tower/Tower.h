@@ -3,11 +3,15 @@
 #ifndef TOWER_DEFENCE_TOWER_H
 #define TOWER_DEFENCE_TOWER_H
 
-#include "../ObjectWithHealth/ObjectWithHealth.h"
+#include <iostream>
+#include <memory>
+#include "SFML/Graphics.hpp"
+#include "../ObjectWithLocation/ObjectWithLocation.h"
 #include "../Table/Table.h"
 #include "../Table/TowerData/TowerData.h"
 #include "../Castle/Castle.h"
 #include "../Enemy/Enemy.h"
+#include "../Enemy/LightEnemy/LightEnemy.h"
 
 namespace TowerDefence {
 
@@ -20,18 +24,21 @@ namespace TowerDefence {
      */
 
     // Class Tower
-    class Tower : public ObjectWithHealth {
+    class Tower : public ObjectWithLocation {
     protected:
         int m_level;
         Table<int, TowerData> m_table;
+        sf::Image m_image;
+        sf::Texture m_texture;
+        sf::Sprite m_sprite;
     public:
         Tower();
 
-        Tower(const Point &point, int health, int maxHealth, int level, const Table<int, TowerData>& table);
+        Tower(const Point &point, int level, const Table<int, TowerData>& table);
 
-        void upgrade(Castle &castle);
+        void upgrade(std::shared_ptr<Castle> castle);
 
-        void attackEnemy(Enemy& enemy); // NOT READY
+        void attackEnemy(std::shared_ptr<Enemy> enemy);
     };
 
 } /* namespace TowerDefence */

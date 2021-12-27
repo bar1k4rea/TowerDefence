@@ -59,9 +59,21 @@ namespace TowerDefence {
                     m_sprite.setTextureRect(sf::IntRect(96, 0, 32, 32));
                 if (m_map[i][j] == 'C')
                     m_sprite.setTextureRect(sf::IntRect(192, 0, 32, 32));
+                if (m_map[i][j] == 'B')
+                    m_sprite.setTextureRect((sf::IntRect(192, 0, 32, 32)));
+                if (m_map[i][j] == 'T')
+                    m_sprite.setTextureRect(sf::IntRect(192, 0, 32, 32));
                 m_sprite.setPosition(32 * j, 32 * i);
                 window.draw(m_sprite);
             }
+    }
+
+    char Landscape::getCell(int i, int j) {
+        return m_map[i][j];
+    }
+
+    void Landscape::setCell(int i, int j, char symbol) {
+        m_map[i][j] = symbol;
     }
 
     const int Landscape::getHeight() {

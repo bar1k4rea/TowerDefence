@@ -10,7 +10,8 @@ namespace TowerDefence {
     Loader::Loader() : m_towerTable(), m_castleTable(), m_enemyTable() {}
 
     // Load Table.
-    void Loader::loadTable() {
+    int Loader::loadTable() {
+        int numberOfEnemies;
         std::ifstream castleFile("../config/CastleData.txt"), enemyFile("../config/EnemyData.txt"), towerFile(
                 "../config/TowerData.txt"), lairFile("../config/LairData.txt") ;
         Pair<int, CastleData> castlePair;
@@ -18,9 +19,11 @@ namespace TowerDefence {
         Pair<int, EnemyData> enemyPair;
         Pair<int, LairData> lairPair;
 
+
         while (castleFile >> castlePair)
             m_castleTable.push(castlePair);
         castleFile.close();
+
 
         while (towerFile >> towerPair)
             m_towerTable.push(towerPair);
@@ -30,9 +33,12 @@ namespace TowerDefence {
             m_enemyTable.push(enemyPair);
         enemyFile.close();
 
-        while (lairFile >> lairPair)
+        while (lairFile >> lairPair) {
             m_lairTable.push(lairPair);
+            numberOfEnemies = lairPair.key;
+        }
         lairFile.close();
+        return numberOfEnemies;
     }
 
     // Create Table.

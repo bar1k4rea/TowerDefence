@@ -9,28 +9,26 @@
 namespace TowerDefence {
 
     /**
-* @brief Воздушная пехота.
-* @details Враг может предвигаться через водоёмыи и через горы, имеет ограниченнный боезапас.
-* @date 19.11.2021
-* @author bar1k4real
-*/
+     * @brief Воздушная пехота.
+     * @details Враг может предвигаться через водоёмыи и через горы, имеет ограниченнный боезапас.
+     * @date 19.11.2021
+     * @author bar1k4real
+     */
 
 
     // Class AirEnemy.
     class AirEnemy : public Enemy {
     protected:
-        int m_hit;
-        int m_ammunition;
+        float m_hit;
+        float m_ammunition;
     public:
         AirEnemy();
 
-        AirEnemy(const Point &point, int health, int speed, int recovery, int damage, int hit, int ammunition);
-
-        AirEnemy(const Point &point, int health, int maxHealth, int speed, int recovery, int damage, int hit, int ammunition);
+        AirEnemy(const Point &point, float health, float maxHealth, float speed, float recovery, float damage, std::vector<Point> &route, float hit, float ammunition);
 
         void attackWall(Wall &wall);
 
-        virtual void update();
+        virtual int update(sf::RenderWindow &window);
     };
 
 } /* namespace TowerDefence */

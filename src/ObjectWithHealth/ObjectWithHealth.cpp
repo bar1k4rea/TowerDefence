@@ -6,7 +6,7 @@
 namespace TowerDefence {
 
     // Empty constructor for ObjectWithHealth.
-    ObjectWithHealth::ObjectWithHealth() : m_health(0), m_maxHealth(0), ObjectWithLocation() {}
+    ObjectWithHealth::ObjectWithHealth() : m_health(1), m_maxHealth(1), ObjectWithLocation() {}
 
     // First constructor for ObjectWithHealth.
     ObjectWithHealth::ObjectWithHealth(const Point &point, int health, int maxHealth) : ObjectWithLocation(point),
@@ -15,16 +15,16 @@ namespace TowerDefence {
 
     // Increase health.
     void ObjectWithHealth::increaseHealth(float amount) {
-        m_health = std::max<float>(m_health + amount, m_maxHealth);
+        m_health = std::min<float>(m_health + amount, m_maxHealth);
     }
 
     // Decrease health.
     void ObjectWithHealth::decreaseHealth(float amount) {
-        m_health = std::min<float>(m_health - amount, 0);
+        m_health = std::max<float>(m_health - amount, 0);
     }
 
     // Check health.
-    bool ObjectWithHealth::isAlive() const {
+    bool ObjectWithHealth::isNotAlive() const {
         return m_health == 0;
     }
 

@@ -6,32 +6,36 @@
 #include "../Enemy.h"
 #include "../../Wall/Wall.h"
 
-/**
-* @brief Тяжёлая пехота.
-* @details Тяжелая пехота, атакет стены на расстоянии, маенькая скорость и большой урон.
-* @date 15.11.2021
-* @author bar1k4real
-*/
-
+    /**
+     * @brief Тяжёлая пехота.
+     * @date 15.11.2021
+     * @author bar1k4real
+     */
 
 namespace TowerDefence {
 
     // Class LightEnemy.
     class HeavyEnemy : public Enemy {
     protected:
-        int m_hit;
-        int m_radius;
+        float m_hit;
+        float m_radius;
     public:
         HeavyEnemy();
 
-        HeavyEnemy(const Point &point, int health, int speed, int recovery, int damage, int hit, int radius);
-
-        HeavyEnemy(const Point &point, int health, int maxHealth, int speed, int recovery, int damage, int hit,
-                   int radius);
+        HeavyEnemy(const Point &point, float health, float maxHealth, float speed, float recovery, float damage,
+                   const std::vector<Point> &route, float hit, float radius);
 
         void attackWall(Wall &wall);
 
-        virtual void update();
+        int update(sf::RenderWindow &window);
+
+        float getMHit() const;
+
+        void setMHit(float mHit);
+
+        float getMRadius() const;
+
+        void setMRadius(float mRadius);
     };
 
 } /* namespace TowerDefence */

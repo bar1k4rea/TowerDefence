@@ -6,7 +6,7 @@
 namespace TowerDefence {
 
     // Empty constructor for Castle.
-    Castle::Castle() : ObjectWithHealth(), m_level(0), m_gold(0), m_table() {}
+    Castle::Castle() : ObjectWithHealth(), m_level(1), m_gold(0), m_table() {}
 
     // Second constructor for Castle.
     Castle::Castle(const Point &point, float health, float maxHealth, float gold,
@@ -26,7 +26,7 @@ namespace TowerDefence {
 
     // Update data for Castle.
     void Castle::update() {
-        if (!isAlive())
+        if (isNotAlive())
             throw std::range_error("Castle destroyed!");
         increaseHealth(m_table[m_level].recovery);
         m_gold += m_table[m_level].profit;

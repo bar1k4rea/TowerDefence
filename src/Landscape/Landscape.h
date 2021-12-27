@@ -17,7 +17,7 @@ namespace TowerDefence {
 
     // Class Landscape.
     class Landscape {
-    public:
+    private:
         static const int HEIGHT = 25;
         static const int WIDTH = 40;
         std::string m_map[HEIGHT];
@@ -32,6 +32,10 @@ namespace TowerDefence {
         void loadMap();
 
         void drawMap(sf::RenderWindow &window);
+
+        char getCell(int i, int j);
+
+        void setCell(int i, int j, char symbol);
 
         static const int getHeight();
 

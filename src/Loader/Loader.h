@@ -26,7 +26,7 @@ namespace TowerDefence {
 
         void createTable();
 
-        void loadTable();
+        int loadTable();
 
         void showTable();
 

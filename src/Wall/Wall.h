@@ -3,6 +3,7 @@
 #ifndef TOWER_DEFENCE_WALL_H
 #define TOWER_DEFENCE_WALL_H
 
+#include <memory>
 #include "../ObjectWithHealth/ObjectWithHealth.h"
 #include "../Table/Table.h"
 #include "../Castle/Castle.h"
@@ -12,15 +13,15 @@ namespace TowerDefence {
     // Class Wall
     class Wall : public ObjectWithHealth {
     protected:
-        int m_cost;
+        static const int m_cost = 40;
     public:
         Wall();
 
-        Wall(const Point &point, int health, int cost);
+        Wall(const Point &point, int health, int maxHealth);
 
-        Wall(const Point &point, int health, int maxHealth, int cost);
+        void renovate(std::shared_ptr<Castle> castle);
 
-        void renovate(Castle& castle);
+        static const int getMCost();
     };
 
 } /* namespace TowerDefence */

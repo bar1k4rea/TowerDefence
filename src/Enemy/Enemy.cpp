@@ -6,7 +6,7 @@
 namespace TowerDefence {
 
     // Empty constructor for Enemy.
-    Enemy::Enemy() : ObjectWithHealth(), m_speed(0), m_recovery(0), m_damage(0), m_route(), m_counter(0),
+    Enemy::Enemy() : ObjectWithHealth(), m_speed(0), m_recovery(0), m_damage(0), m_route(), m_counterOfWayPoint(0),
                      m_isMove(false), m_image(), m_texture(), m_sprite() {}
 
 
@@ -14,7 +14,8 @@ namespace TowerDefence {
     Enemy::Enemy(const Point &point, float health, float maxHealth, float speed, float recovery, float damage,
                  const std::vector<Point> &route) : ObjectWithHealth(point, health, maxHealth), m_speed(speed),
                                                     m_recovery(recovery), m_damage(damage), m_route(route),
-                                                    m_counter(0), m_isMove(true) {
+                                                    m_counterOfWayPoint(0), m_isMove(true) {
+        m_numberOfWayPoint = m_route.size();
         m_image.loadFromFile("../image/Texture.png");
         m_texture.loadFromImage(m_image);                   // ошибка при вызове более двух врагов, показывается
         m_sprite.setTexture(m_texture);                    // белый квадрат, а не спрайт врага.
@@ -24,10 +25,10 @@ namespace TowerDefence {
 //
 //    }
 
-//    // Update data for Enemy.
-//    void Enemy::update() {
-//        //добавить про маршрут, про бафы аурами, про
-//    }
+    // Update data for Enemy.
+    int Enemy::update(sf::RenderWindow &window) {
+        return 0;
+    }
 
     // Attack Castle.
     void Enemy::attackCastle(Castle &castle) {
@@ -68,11 +69,11 @@ namespace TowerDefence {
     }
 
     int Enemy::getCounter() const {
-        return m_counter;
+        return m_counterOfWayPoint;
     }
 
     void Enemy::setCounter(int mCounter) {
-        m_counter = mCounter;
+        m_counterOfWayPoint = mCounter;
     }
 
     bool Enemy::getIsMove() const {
@@ -95,8 +96,10 @@ namespace TowerDefence {
         return m_texture;
     }
 
-    void Enemy::setTexture(const sf::Texture &mTexture) {
-        m_texture = mTexture;
+    void Enemy::setTexture(const sf::Texture &texture) {
+        m_texture = texture;
+        m_sprite.setTexture(m_texture);
+        m_sprite.setTextureRect(sf::IntRect(96, 0, 32, 32));
     }
 
     const sf::Sprite &Enemy::getSprite() const {
@@ -105,6 +108,22 @@ namespace TowerDefence {
 
     void Enemy::setSprite(const sf::Sprite &mSprite) {
         m_sprite = mSprite;
+    }
+
+    int Enemy::getMNumberOfWayPoint() const {
+        return m_numberOfWayPoint;
+    }
+
+    void Enemy::setMNumberOfWayPoint(int mNumberOfWayPoint) {
+        m_numberOfWayPoint = mNumberOfWayPoint;
+    }
+
+    int Enemy::getMType() const {
+        return m_type;
+    }
+
+    void Enemy::setMType(int mType) {
+        m_type = mType;
     }
 
 } /* namespace TowerDefence */

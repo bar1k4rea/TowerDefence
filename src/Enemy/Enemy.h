@@ -27,11 +27,13 @@ namespace TowerDefence {
     // class Enemy
     class Enemy : public ObjectWithHealth {
     protected:
+        int m_type;
         float m_speed;
         float m_recovery;
         float m_damage;
         std::vector<Point> m_route;
-        int m_counter;
+        int m_counterOfWayPoint;
+        int m_numberOfWayPoint;
         bool m_isMove;
         sf::Image m_image;
         sf::Texture m_texture;
@@ -46,7 +48,12 @@ namespace TowerDefence {
 
 //        virtual void createRoute(Landscape &landscape);
 //
-//        virtual void update(sf::RenderWindow &window);
+
+        virtual int update(sf::RenderWindow &window);
+
+        int getMNumberOfWayPoint() const;
+
+        void setMNumberOfWayPoint(int mNumberOfWayPoint);
 
         float getSpeed() const;
 
@@ -83,6 +90,10 @@ namespace TowerDefence {
         const sf::Sprite &getSprite() const;
 
         void setSprite(const sf::Sprite &mSprite);
+
+        int getMType() const;
+
+        void setMType(int mType);
     };
 
 } /* namespace TowerDefence */
