@@ -29,4 +29,20 @@ namespace TowerDefence {
             enemy->decreaseHealth(m_table[m_level].damage);
     }
 
+    int Tower::getMLevel() const {
+        return m_level;
+    }
+
+    void Tower::setMLevel(int mLevel) {
+        m_level = mLevel;
+    }
+
+    const Table<int, TowerData> &Tower::getMTable() const {
+        return m_table;
+    }
+
+    void Tower::setMTable(const Table<int, TowerData> &mTable) {
+        m_table = mTable;
+    }
+
 } /* namespace TowerDefence */

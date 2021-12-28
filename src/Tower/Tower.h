@@ -39,6 +39,14 @@ namespace TowerDefence {
         void upgrade(std::shared_ptr<Castle> castle);
 
         void attackEnemy(std::shared_ptr<Enemy> enemy);
+
+        int getMLevel() const;
+
+        void setMLevel(int mLevel);
+
+        const Table<int, TowerData> &getMTable() const;
+
+        void setMTable(const Table<int, TowerData> &mTable);
     };
 
 } /* namespace TowerDefence */

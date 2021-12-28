@@ -206,12 +206,6 @@ namespace TowerDefence {
                     createHeavyEnemy();
                 if (loader->m_lairTable[m_counterOfEnemies].type == 2)
                     createAirEnemy();
-                if (loader->m_lairTable[m_counterOfEnemies].type == 3)
-                    createLightHero();
-                if (loader->m_lairTable[m_counterOfEnemies].type == 4)
-                    createHeavyHero();
-                if (loader->m_lairTable[m_counterOfEnemies].type == 5)
-                    createAirHero();
             }
     }
 
@@ -468,3 +462,10 @@ namespace TowerDefence {
 //
 //    // Create AirHero.
 //    void GameManager::createAirHero() {}
+
+//                if (loader->m_lairTable[m_counterOfEnemies].type == 3)
+//                    createLightHero();
+//                if (loader->m_lairTable[m_counterOfEnemies].type == 4)
+//                    createHeavyHero();
+//                if (loader->m_lairTable[m_counterOfEnemies].type == 5)
+//                    createAirHero();
